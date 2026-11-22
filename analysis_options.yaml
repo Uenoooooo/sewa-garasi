@@ -23,6 +23,9 @@ linter:
   rules:
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # Import file project selalu memakai path lengkap `package:sewa_garasi/...`
+    # (bukan `../../..`). Urutan import: dart:, package luar, lalu project.
+    always_use_package_imports: true
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
