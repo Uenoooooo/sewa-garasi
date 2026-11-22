@@ -142,7 +142,7 @@ class Car extends Vehicle {
   bool canParkIn(GarageType garageType) => garageType == GarageType.car;
 }
 
-/// Mobil Listrik: parkir di garasi listrik.
+/// Mobil Listrik: parkir di garasi mobil atau garasi mobil listrik.
 class ElectricCar extends Vehicle {
   final double batteryCapacityKwh;
 
@@ -159,7 +159,8 @@ class ElectricCar extends Vehicle {
   VehicleType get type => VehicleType.electricCar;
 
   @override
-  bool canParkIn(GarageType garageType) => garageType == GarageType.electric;
+  bool canParkIn(GarageType garageType) =>
+      garageType == GarageType.car || garageType == GarageType.electric;
 
   /// Sewa Garasi Listrik: kWh yang perlu diisi sampai penuh.
   double kwhToFull(double remainingKwh) {

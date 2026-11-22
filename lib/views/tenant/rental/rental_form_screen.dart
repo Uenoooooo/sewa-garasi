@@ -338,7 +338,7 @@ class _RentalFormScreenState extends State<RentalFormScreen> {
                   onChanged: _onGarageTypeChanged,
                   validator: (v) => v == null ? 'Pilih tipe garasi' : null,
                   helperText: _vehicle is ElectricCar
-                      ? 'Mobil listrik hanya bisa di Garasi Mobil Listrik.'
+                      ? 'Mobil listrik bisa di Garasi Mobil atau Garasi Mobil Listrik.'
                       : null,
                 ),
                 SegmentedButton<RentalType>(

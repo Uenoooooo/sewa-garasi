@@ -132,6 +132,22 @@ void main() {
       expect(r.endDate, DateTime(2026, 11, 22));
     });
 
+    /// Test: Sewa mobil listrik di garasi mobil biasa tanpa isi daya.
+    test('mobil listrik di garasi mobil: diterima tanpa isi daya', () {
+      final r = vm.buildRental(
+        vehicle: ev,
+        garage: cGarage,
+        rentalType: RentalType.daily,
+        days: 2,
+        paymentProofPath: 'bukti.jpg',
+        startDate: start,
+      );
+      expect(r.garageId, 'C001');
+      expect(r.chargedKwh, isNull);
+      expect(r.chargingCost, 0);
+      expect(r.totalCost, 40000);
+    });
+
     /// Test: Sewa mobil biasa tanpa biaya listrik.
     test('mobil biasa di garasi mobil: tanpa isi daya', () {
       final r = vm.buildRental(
@@ -175,18 +191,6 @@ void main() {
 
     /// Test: Sewa ditolak bila garasi salah tipe atau sisa baterai kosong.
     test('ditolak: garasi salah tipe atau sisa baterai kosong', () {
-      // Mobil listrik di garasi mobil.
-      expect(
-        () => vm.buildRental(
-            vehicle: ev,
-            garage: cGarage,
-            rentalType: RentalType.daily,
-            days: 1,
-            batteryRemainingKwh: 20,
-            paymentProofPath: 'x',
-            startDate: start),
-        throwsA(isA<DataException>()),
-      );
       // Mobil di garasi sepeda.
       expect(
         () => vm.buildRental(

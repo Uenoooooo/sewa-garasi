@@ -35,7 +35,7 @@ enum VehicleType {
   bicycle('Sepeda', [GarageType.bicycle]),
   motorcycle('Sepeda Motor', [GarageType.bicycle]),
   car('Mobil', [GarageType.car]),
-  electricCar('Mobil Listrik', [GarageType.electric]);
+  electricCar('Mobil Listrik', [GarageType.car, GarageType.electric]);
 
   const VehicleType(this.label, this.allowedGarageTypes);
   final String label;

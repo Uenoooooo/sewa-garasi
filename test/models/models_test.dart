@@ -28,11 +28,12 @@ void main() {
       expect(moto.canParkIn(GarageType.electric), isFalse);
       // Mobil di garasi mobil.
       expect(car.allowedGarageTypes, [GarageType.car]);
-      // Mobil listrik hanya di garasi mobil listrik.
-      expect(ev.allowedGarageTypes, [GarageType.electric]);
-      expect(ev.canParkIn(GarageType.car), isFalse);
+      // Mobil listrik di garasi mobil atau garasi mobil listrik.
+      expect(ev.allowedGarageTypes, [GarageType.car, GarageType.electric]);
+      expect(ev.canParkIn(GarageType.car), isTrue);
       expect(ev.canParkIn(GarageType.bicycle), isFalse);
-      expect(VehicleType.electricCar.allowedGarageTypes, [GarageType.electric]);
+      expect(VehicleType.electricCar.allowedGarageTypes,
+          [GarageType.car, GarageType.electric]);
     });
 
     /// Test: Plat nomor wajib kecuali sepeda, kapasitas baterai hanya untuk mobil listrik.
